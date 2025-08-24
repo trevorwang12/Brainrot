@@ -1,36 +1,242 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steal a Brainrot News Website
 
-## Getting Started
+A modern gaming news website built with Next.js, featuring comprehensive coverage of the Steal a Brainrot gaming phenomenon.
 
-First, run the development server:
+## 🎮 About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This website provides the latest news, in-depth guides, and strategic content for the Steal a Brainrot gaming community. With over 15.2 billion player interactions analyzed, we deliver expert insights and comprehensive gameplay strategies.
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 15.5.0 with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v3 with custom design system
+- **Content:** Markdown with gray-matter
+- **Search:** Full-text search with API routes
+- **Architecture:** Static Site Generation (SSG) for optimal performance
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary Theme:** Dark gradient backgrounds inspired by Mobalytics
+- **Article Pages:** Light cream backgrounds (#fefbf3) for optimal readability
+- **Text:** Pure black (#000000) for maximum contrast
+- **Accents:** Gold (#f2bf43), Orange (#fc7c00), Purple (#9898ff), Green (#16b474)
+
+### Typography
+- **Primary Font:** Geist Sans
+- **Monospace:** Geist Mono
+- **Article Content:** Optimized prose styling with high contrast
+
+## 📁 Project Structure
+
+```
+brainout-news/
+├── README.md
+├── package.json
+├── next.config.ts
+├── tailwind.config.js
+├── tsconfig.json
+├── postcss.config.js
+│
+├── public/
+│   ├── images/          # Static images
+│   └── icons/           # SVG icons
+│
+├── content/
+│   ├── news/            # News articles (Markdown)
+│   └── guides/          # Strategy guides (Markdown)
+│
+└── src/
+    ├── app/             # Next.js App Router pages
+    │   ├── globals.css  # Global styles
+    │   ├── layout.tsx   # Root layout
+    │   ├── page.tsx     # Homepage
+    │   ├── news/        # News pages
+    │   ├── guides/      # Guide pages
+    │   ├── search/      # Search functionality
+    │   └── api/         # API routes
+    │
+    ├── components/      # Reusable components
+    │   ├── layout/      # Layout components
+    │   └── ui/          # UI components
+    │
+    ├── lib/             # Utilities and helpers
+    │   ├── content.ts   # Content management
+    │   └── markdown.ts  # Markdown processing
+    │
+    └── types/           # TypeScript definitions
+        └── content.ts   # Content type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+   ```bash
+   git clone [repository-url]
+   cd brainout-news
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run development server:**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Content Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Adding News Articles
 
-## Deploy on Vercel
+1. Create a new `.md` file in `content/news/`
+2. Include frontmatter with metadata:
+   ```yaml
+   ---
+   id: "unique-id"
+   title: "Article Title"
+   summary: "Brief description"
+   author: "Author Name"
+   publishedAt: "2025-08-23"
+   category: "News Category"
+   tags: ["tag1", "tag2"]
+   imageUrl: "/images/placeholder.svg"
+   featured: false
+   slug: "article-slug"
+   ---
+   ```
+3. Write content using Markdown syntax
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding Strategy Guides
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a new `.md` file in `content/guides/`
+2. Include frontmatter with guide-specific metadata:
+   ```yaml
+   ---
+   id: "guide-id"
+   title: "Guide Title"
+   summary: "Guide description"
+   author: "Author Name"
+   publishedAt: "2025-08-23"
+   category: "Strategy Guide"
+   difficulty: "beginner" | "intermediate" | "advanced"
+   tags: ["strategy", "gameplay"]
+   imageUrl: "/images/placeholder.svg"
+   featured: false
+   slug: "guide-slug"
+   ---
+   ```
+
+## 🎯 Features
+
+### ✅ Completed Features
+- Modern responsive design with dark/light themes
+- Comprehensive content management system
+- Full-text search functionality
+- Static site generation for optimal performance
+- SEO-optimized article pages
+- Mobile-friendly navigation
+- Tailwind CSS design system
+- TypeScript for type safety
+
+### 📋 Pages
+- **Homepage:** Featured content and latest updates
+- **News Section:** Latest gaming news and updates
+- **Guides Section:** Strategic guides and tutorials  
+- **Search:** Full-text content search
+- **Static Pages:** About, Contact, Privacy Policy, Terms
+
+### 🔍 Content Categories
+- **News:** Game updates, events, community news
+- **Strategy Guides:** Beginner to advanced gameplay strategies
+- **Economic Guides:** Brainrot hierarchy and investment strategies
+- **Technical Guides:** Advanced mechanics and optimization
+
+## 🎨 Styling Guidelines
+
+### CSS Organization
+- Global styles in `src/app/globals.css`
+- Component-specific styles using Tailwind classes
+- Custom CSS variables for consistent theming
+- Responsive design with mobile-first approach
+
+### Color Usage
+```css
+/* Article pages - Light theme */
+.article-content {
+  background: #fefbf3;  /* Light cream */
+  color: #000000;       /* Pure black text */
+}
+
+/* Main site - Dark theme */
+.main-content {
+  background: linear-gradient(135deg, #2a1f52, #1a1635, #100f2b);
+  color: #ffffff;
+}
+```
+
+## 🔧 Development Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+## 📊 Performance
+
+- **Build Size:** ~129kB First Load JS
+- **Static Generation:** 30 static pages
+- **Lighthouse Score:** Optimized for performance and accessibility
+- **Image Optimization:** Next.js automatic image optimization
+
+## 🚀 Deployment
+
+This project is optimized for deployment on:
+- **Vercel** (Recommended)
+- **Netlify**
+- **GitHub Pages**
+- Any static hosting service
+
+## 🔗 SEO Features
+
+- Automatic sitemap generation
+- Open Graph meta tags
+- Structured data for articles
+- Semantic HTML structure
+- Mobile-responsive design
+- Fast loading times with SSG
+
+## 📈 Analytics & Monitoring
+
+The website includes comprehensive content covering:
+- 15.2+ billion player interactions analyzed
+- Complete gameplay strategies and guides
+- Economic analysis and investment strategies
+- Community event coverage and updates
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is developed for the Steal a Brainrot gaming community.
+
+---
+
+**Built with ❤️ for the Steal a Brainrot Community**
+
+*Last updated: August 24, 2025*

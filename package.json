@@ -2,26 +2,65 @@
   "name": "brainout-news",
   "version": "0.1.0",
   "private": true,
+  "description": "A modern gaming news website for the Steal a Brainrot gaming community",
+  "keywords": [
+    "next.js",
+    "gaming",
+    "news",
+    "brainrot",
+    "typescript",
+    "tailwindcss"
+  ],
+  "homepage": "https://brainout-news.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/brainout-news.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/brainout-news/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev --turbopack -p 5000",
+    "build": "next build",
+    "build:analyze": "ANALYZE=true npm run build",
     "start": "next start",
-    "lint": "eslint"
+    "start:prod": "NODE_ENV=production next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out dist",
+    "export": "next export",
+    "perf": "npm run build && npm run start",
+    "docker:build": "docker build -t brainout-news .",
+    "docker:run": "docker run -p 3000:3000 brainout-news",
+    "docker:compose:up": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "docker:compose:logs": "docker-compose logs -f"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^16.2.0",
+    "next": "15.5.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.0"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
-    "@eslint/eslintrc": "^3"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
   }
 }

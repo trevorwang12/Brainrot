@@ -1,7 +1,12 @@
+# Brainrot News - Git Ignore Configuration
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 /.pnp
 .pnp.*
 .yarn/*
@@ -10,32 +15,81 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# Next.js build outputs
 /.next/
 /out/
+/dist/
+/.turbo/
 
-# production
-/build
+# Production builds
+/build/
 
-# misc
+# Testing
+/coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS generated files
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.cab
+*.msi
+*.msm
+*.msp
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# Logs
+*.log
+logs/
+*.log.*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
 
-# typescript
+# Temporary folders
+tmp/
+temp/
+
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Deployment
+.vercel
+.netlify/
+
+# Miscellaneous
+*.pem
+*.key
+*.crt
+*.csr
