@@ -69,6 +69,11 @@ docker-compose restart app
 docker-compose logs -f app
 ```
 
+### 访问地址
+
+- **开发环境**: http://localhost:6666
+- **生产环境**: http://localhost:6666 (HTTP) / https://localhost:6667 (HTTPS)
+
 ### 2. 传统部署
 
 #### Node.js 环境部署
@@ -152,7 +157,7 @@ redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
 访问 `/health` 端点检查服务状态：
 
 ```bash
-curl http://localhost/health
+curl http://localhost:6666/health
 # 响应: healthy
 ```
 
@@ -228,6 +233,8 @@ server {
    ports:
      - "8080:80"  # 改为其他端口
    ```
+
+   **注意**: 当前配置使用端口 6666 (HTTP) 和 6667 (HTTPS)
 
 ### 性能调优
 

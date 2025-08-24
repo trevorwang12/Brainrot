@@ -86,6 +86,7 @@ brainout-news/
    ```bash
    npm run dev
    ```
+   Visit http://localhost:6666
 
 4. **Build for production:**
    ```bash
@@ -200,9 +201,25 @@ npm run lint     # Run ESLint
 
 ## 🚀 Deployment
 
-This project is optimized for deployment on:
-- **Vercel** (Recommended)
-- **Netlify**
+### Docker Deployment (Recommended)
+
+```bash
+# Development
+docker-compose up -d
+
+# Production
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+**Access URLs:**
+- Development: http://localhost:6666
+- Production HTTP: http://localhost:6666
+- Production HTTPS: https://localhost:6667
+
+### Other Platforms
+This project is also optimized for deployment on:
+- **Vercel**
+- **Netlify** 
 - **GitHub Pages**
 - Any static hosting service
 
