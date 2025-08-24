@@ -62,9 +62,9 @@ jobs:
 
     - name: Test Docker image
       run: |
-        docker run -d -p 3000:3000 --name test-container ${{ env.DOCKER_IMAGE }}:dokploy
+        docker run -d -p 6666:6666 --name test-container ${{ env.DOCKER_IMAGE }}:dokploy
         sleep 10
-        curl -f http://localhost:3000/api/health || exit 1
+        curl -f http://localhost:6666/api/health || exit 1
         docker stop test-container
         docker rm test-container
 

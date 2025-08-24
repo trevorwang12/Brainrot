@@ -163,11 +163,11 @@ build:
   args:
     NODE_ENV: production
 deploy:
-  port: 3000
+  port: 6666
   env:
     NODE_ENV: production
     NEXT_TELEMETRY_DISABLED: "1"
-    PORT: "3000"
+    PORT: "6666"
 healthcheck:
   path: /api/health
   interval: 30s
@@ -216,7 +216,7 @@ deploy_traditional() {
     
     # 启动应用
     print_info "启动应用..."
-    nohup npm start > logs/app.log 2>&1 &
+    nohup npm start -- -p 6666 > logs/app.log 2>&1 &
     
     # 记录进程 ID
     echo $! > .pid
@@ -273,7 +273,7 @@ show_deployment_info() {
             print_info "管理命令: docker-compose logs -f"
             ;;
         "traditional")
-            print_info "访问地址: http://localhost:3000"
+            print_info "访问地址: http://localhost:6666"
             print_info "管理命令: kill $(cat .pid)"
             print_info "日志文件: logs/app.log"
             ;;

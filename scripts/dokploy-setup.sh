@@ -25,11 +25,11 @@ build:
     NODE_ENV: production
     NEXT_TELEMETRY_DISABLED: "1"
 deploy:
-  port: 3000
+  port: 6666
   env:
     NODE_ENV: production
     NEXT_TELEMETRY_DISABLED: "1"
-    PORT: "3000"
+    PORT: "6666"
     HOSTNAME: "0.0.0.0"
 healthcheck:
   path: /api/health
@@ -90,7 +90,7 @@ cat > .env.dokploy << 'EOF'
 # Dokploy 部署环境变量
 NODE_ENV=production
 NEXT_TELEMETRY_DISABLED=1
-PORT=3000
+PORT=6666
 HOSTNAME=0.0.0.0
 
 # 应用配置 (请根据你的 Dokploy 域名修改)
@@ -114,7 +114,7 @@ if command -v jq &> /dev/null; then
     # 添加 Dokploy 专用脚本
     jq '.scripts += {
         "build:dokploy": "next build",
-        "start:dokploy": "next start -p 3000",
+        "start:dokploy": "next start -p 6666",
         "deploy:dokploy": "NODE_ENV=production npm run build:dokploy"
     }' package.json > package.json.tmp && mv package.json.tmp package.json
     
@@ -122,7 +122,7 @@ if command -v jq &> /dev/null; then
 else
     echo -e "${YELLOW}⚠️  请手动添加以下脚本到 package.json:${NC}"
     echo '"build:dokploy": "next build",'
-    echo '"start:dokploy": "next start -p 3000",'
+    echo '"start:dokploy": "next start -p 6666",'
     echo '"deploy:dokploy": "NODE_ENV=production npm run build:dokploy"'
 fi
 
@@ -189,8 +189,9 @@ echo "1. 将代码推送到 GitHub"
 echo "2. 在 Dokploy 中创建新应用"
 echo "3. 连接你的 GitHub 仓库"
 echo "4. 选择使用 Dockerfile.dokploy"
-echo "5. 设置环境变量（参考 .env.dokploy）"
-echo "6. 部署应用"
+echo "5. 设置端口为 6666"
+echo "6. 设置环境变量（参考 .env.dokploy）"
+echo "7. 部署应用"
 EOF
 
 chmod +x scripts/verify-dokploy.sh
