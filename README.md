@@ -86,7 +86,7 @@ brainout-news/
    ```bash
    npm run dev
    ```
-   Visit http://localhost:6666
+   Visit http://localhost:8558
 
 4. **Build for production:**
    ```bash
@@ -212,8 +212,8 @@ docker-compose -f docker-compose.prod.yml up -d
 ```
 
 **Access URLs:**
-- Development: http://localhost:6666
-- Production HTTP: http://localhost:6666
+- Development: http://localhost:8558
+- Production HTTP: http://localhost:8558
 - Production HTTPS: https://localhost:6667
 
 ### Other Platforms

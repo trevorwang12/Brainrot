@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 DEPLOYMENT_TYPE="dokploy"
 PROJECT_NAME="brainout-news"
 DOCKER_IMAGE_NAME="brainrot-news"
-HEALTH_CHECK_URL="http://localhost:6666/api/health"
+HEALTH_CHECK_URL="http://localhost:8558/api/health"
 
 # 函数：打印带颜色的消息
 print_message() {
@@ -163,11 +163,11 @@ build:
   args:
     NODE_ENV: production
 deploy:
-  port: 6666
+  port: 8558
   env:
     NODE_ENV: production
     NEXT_TELEMETRY_DISABLED: "1"
-    PORT: "6666"
+    PORT: "8558"
 healthcheck:
   path: /api/health
   interval: 30s
@@ -216,7 +216,7 @@ deploy_traditional() {
     
     # 启动应用
     print_info "启动应用..."
-    nohup npm start -- -p 6666 > logs/app.log 2>&1 &
+    nohup npm start -- -p 8558 > logs/app.log 2>&1 &
     
     # 记录进程 ID
     echo $! > .pid
@@ -268,12 +268,12 @@ show_deployment_info() {
             print_info "管理方式: Dokploy 控制面板"
             ;;
         "docker")
-            print_info "访问地址: http://localhost:6666"
+            print_info "访问地址: http://localhost:8558"
             print_info "HTTPS地址: https://localhost:6667"
             print_info "管理命令: docker-compose logs -f"
             ;;
         "traditional")
-            print_info "访问地址: http://localhost:6666"
+            print_info "访问地址: http://localhost:8558"
             print_info "管理命令: kill $(cat .pid)"
             print_info "日志文件: logs/app.log"
             ;;
@@ -283,7 +283,7 @@ show_deployment_info() {
     print_info "有用的命令："
     print_info "查看日志: npm run docker:compose:logs"
     print_info "重启服务: ./scripts/deploy.sh --type=$DEPLOYMENT_TYPE"
-    print_info "健康检查: curl http://localhost:6666/api/health"
+    print_info "健康检查: curl http://localhost:8558/api/health"
 }
 
 # 函数：回滚部署
@@ -316,7 +316,7 @@ show_help() {
     echo "  --type TYPE           部署类型 (dokploy|docker|traditional) [默认: dokploy]"
     echo "  --skip-tests         跳过测试"
     echo "  --skip-cleanup       跳过清理"
-    echo "  --health-check-url   健康检查 URL [默认: http://localhost:6666/api/health]"
+    echo "  --health-check-url   健康检查 URL [默认: http://localhost:8558/api/health]"
     echo "  --rollback           回滚部署"
     echo "  --help               显示此帮助信息"
     echo

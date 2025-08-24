@@ -71,8 +71,8 @@ docker-compose logs -f app
 
 ### 访问地址
 
-- **开发环境**: http://localhost:6666
-- **生产环境**: http://localhost:6666 (HTTP) / https://localhost:6667 (HTTPS)
+- **开发环境**: http://localhost:8558
+- **生产环境**: http://localhost:8558 (HTTP) / https://localhost:6667 (HTTPS)
 
 ### 2. 传统部署
 
@@ -157,7 +157,7 @@ redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
 访问 `/health` 端点检查服务状态：
 
 ```bash
-curl http://localhost:6666/health
+curl http://localhost:8558/health
 # 响应: healthy
 ```
 
@@ -234,7 +234,7 @@ server {
      - "8080:80"  # 改为其他端口
    ```
 
-   **注意**: 当前配置使用端口 6666 (HTTP) 和 6667 (HTTPS)
+   **注意**: 当前配置使用端口 8558 (HTTP) 和 6667 (HTTPS)
 
 ### 性能调优
 

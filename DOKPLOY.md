@@ -135,7 +135,7 @@ export default nextConfig
 ```json
 {
   "scripts": {
-    "dev": "next dev -p 6666",
+    "dev": "next dev -p 8558",
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint"
@@ -155,15 +155,15 @@ export default nextConfig
 2. **配置构建设置**
    ```
    Build Command: npm run build
-   Start Command: npm start -- -p 6666
-   Port: 6666
+   Start Command: npm start -- -p 8558
+   Port: 8558
    ```
 
 3. **环境变量设置**
    ```
    NODE_ENV=production
    NEXT_TELEMETRY_DISABLED=1
-   PORT=6666
+   PORT=8558
    NEXT_PUBLIC_APP_URL=https://your-app.dokploy.com
    ```
 
@@ -172,7 +172,7 @@ export default nextConfig
 1. **选择 Docker 部署**
 2. **使用我们的优化 Dockerfile**
    - 确保使用 `Dockerfile.dokploy`
-3. **端口配置**: 6666
+3. **端口配置**: 8558
 
 ## 🐛 故障排除
 
@@ -263,11 +263,11 @@ module.exports = {
 ```bash
 # 本地测试构建
 npm run build
-npm start -- -p 6666
+npm start -- -p 8558
 
 # 测试 Docker 构建
 docker build -f Dockerfile.dokploy -t brainrot-test .
-docker run -p 6666:6666 brainrot-test
+docker run -p 8558:8558 brainrot-test
 ```
 
 ### 2. 渐进式部署
@@ -297,5 +297,5 @@ docker run -p 6666:6666 brainrot-test
 - [ ] next.config.ts 配置简化
 - [ ] 环境变量正确设置
 - [ ] 健康检查端点工作正常
-- [ ] 端口配置为 6666
+- [ ] 端口配置为 8558
 - [ ] 依赖安装成功

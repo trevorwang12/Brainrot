@@ -24,7 +24,7 @@ services:
     container_name: brainout-news-nginx
     restart: unless-stopped
     ports:
-      - "6666:80"
+      - "8558:80"
       - "6667:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro

@@ -57,16 +57,16 @@ newgrp docker
 
 **检查方法:**
 ```bash
-# 检查端口 6666 是否被占用
-sudo netstat -tulpn | grep 6666
+# 检查端口 8558 是否被占用
+sudo netstat -tulpn | grep 8558
 # 或者使用 ss
-sudo ss -tulpn | grep 6666
+sudo ss -tulpn | grep 8558
 ```
 
 **解决方案:**
 ```bash
 # 找出占用进程并终止
-sudo lsof -i :6666
+sudo lsof -i :8558
 sudo kill -9 <PID>
 
 # 或者修改端口配置
@@ -147,14 +147,14 @@ fi
 echo
 
 # 3. 检查端口占用
-echo "3. 检查端口 6666 是否可用:"
-if ss -tulpn | grep -q ":6666"; then
-    echo "❌ 端口 6666 已被占用"
+echo "3. 检查端口 8558 是否可用:"
+if ss -tulpn | grep -q ":8558"; then
+    echo "❌ 端口 8558 已被占用"
     echo "占用进程:"
-    ss -tulpn | grep ":6666"
-    echo "解决方案: sudo lsof -i :6666 找到进程ID，然后 sudo kill -9 <PID>"
+    ss -tulpn | grep ":8558"
+    echo "解决方案: sudo lsof -i :8558 找到进程ID，然后 sudo kill -9 <PID>"
 else
-    echo "✅ 端口 6666 可用"
+    echo "✅ 端口 8558 可用"
 fi
 echo
 
@@ -239,7 +239,7 @@ docker-compose ps
 docker-compose logs -f
 
 # 测试应用是否响应
-curl http://localhost:6666/health
+curl http://localhost:8558/health
 ```
 
 ### 高级故障排除
@@ -254,7 +254,7 @@ curl http://localhost:6666/health
 2. **使用 Docker 原生命令:**
    ```bash
    docker build -t brainout-news .
-   docker run -p 6666:3000 brainout-news
+   docker run -p 8558:3000 brainout-news
    ```
 
 3. **检查网络配置:**

@@ -44,11 +44,11 @@ echo -e "${YELLOW}⏳ 等待服务启动...${NC}"
 sleep 15
 
 echo -e "${YELLOW}🩺 检查服务健康状态...${NC}"
-if curl -f -s http://localhost:6666/api/health > /dev/null; then
+if curl -f -s http://localhost:8558/api/health > /dev/null; then
     echo -e "${GREEN}✅ 部署成功！${NC}"
     echo
-    echo -e "${GREEN}📍 访问地址: http://localhost:6666${NC}"
-    echo -e "${GREEN}🔍 健康检查: curl http://localhost:6666/api/health${NC}"
+    echo -e "${GREEN}📍 访问地址: http://localhost:8558${NC}"
+    echo -e "${GREEN}🔍 健康检查: curl http://localhost:8558/api/health${NC}"
     echo -e "${GREEN}📋 查看日志: docker-compose logs -f${NC}"
 else
     echo -e "${RED}❌ 服务启动失败${NC}"
